@@ -24,7 +24,7 @@ public class GetProperties {
                 myBundle = ResourceBundle.getBundle("testdata/native");
                 break;
             default:
-                System.err.println("\n>> The resource isn't selected. Check GetProperties.class <<<\n");
+                System.err.println("\n>The resource isn't selected. Check GetProperties.class<\n");
                 break;
         }
     }

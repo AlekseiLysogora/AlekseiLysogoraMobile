@@ -19,16 +19,19 @@ public class AssertionForNativeApplication {
 
     public void checkThatHomePageWasOpened(String actual, String expected) {
         softAssert.assertTrue(actual.equals(expected),
-                "The title of the Home page of the native application isn't matched with the expected result");
+                "The title of the Home page of the native "
+                        + "application isn't matched with the expected result");
     }
 
     public void checkThatRegistrationPageWasOpened(String actual, String expectedRegistrationPage) {
         softAssert.assertTrue(actual.equals(expectedRegistrationPage),
-                "The title of the Registration Page of the native application isn't matched with the expected result");
+                "The title of the Registration Page of the native "
+                        + "application isn't matched with the expected result");
     }
 
     public void checkThatBudgetPageWasOpened(String actual, String expectedBudgetPage) {
         softAssert.assertTrue(actual.equals(expectedBudgetPage),
-                "The title of the Budget Page of the native application isn't matched with the expected result");
+                "The title of the Budget Page of the native "
+                        + "application isn't matched with the expected result");
     }
 }

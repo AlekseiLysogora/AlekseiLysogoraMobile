@@ -20,6 +20,8 @@
         <maven-surefire-plugin.version>2.22.2</maven-surefire-plugin.version>
         <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
         <maven-checkstyle-plugin.version>3.1.1</maven-checkstyle-plugin.version>
+
+        <ts.appium>http://localhost:4723/wd/hub</ts.appium>
     </properties>
 
     <dependencies>
@@ -59,7 +61,7 @@
                         <suiteXmlFile>${suite.file}</suiteXmlFile>
                     </suiteXmlFiles>
                     <systemPropertyVariables>
-                        <ts.appium>http://localhost:4723/wd/hub</ts.appium>
+                        <ts.appium>${ts.appium}</ts.appium>
                     </systemPropertyVariables>
                 </configuration>
             </plugin>
@@ -108,7 +110,7 @@
                 <activeByDefault>false</activeByDefault>
             </activation>
             <properties>
-                <suite.file>src/test/resources/nativeTNG.xml</suite.file>
+                <suite.file>${project.build.testOutputDirectory}/suites/nativeTNG.xml</suite.file>
             </properties>
         </profile>
 
@@ -118,7 +120,7 @@
                 <activeByDefault>true</activeByDefault>
             </activation>
             <properties>
-                <suite.file>./src/test/resources/webTNG.xml</suite.file>
+                <suite.file>${project.build.testOutputDirectory}/suites/webTNG.xml</suite.file>
             </properties>
         </profile>
     </profiles>
