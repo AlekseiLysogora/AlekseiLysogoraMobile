@@ -7,23 +7,29 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 public class FirstSimpleTest extends DriverSetup {
-    //Prepare driver to run test(s)
-    @BeforeClass
+
+    @BeforeClass(description = "Prepare driver to run test(s)")
     public void setUp() throws Exception {
-        prepareAndroidNative();
+        //prepareAndroidNative();
+        prepareAndroidWeb();
     }
 
-    //just click on button 'Register new user'
-    @Test
-    public void simpleTest() {
+    //@Test(description = "Just click on button 'Register new user'")
+    public void simpleAndroidNativeApplicationTest() {
         String appPackageName = "platkovsky.alexey.epamtestapp:id/";
         By registerButton = By.id(appPackageName + "register_button");
         androidDriver.findElement(registerButton).click();
         System.out.println("Simple Appium test done");
     }
 
-    //close driver on all test completion
-    @AfterClass
+    @Test(description = "Open Google website")
+    public void simpleAndroidWebApplicationTest() throws InterruptedException {
+        androidDriver.get("http://Google.com");
+        Thread.sleep(5000);
+        System.out.println("Site opening done");
+    }
+
+    @AfterClass(description = "Close driver on all test completion")
     public void tearDown() throws Exception {
         //androidDriver.closeApp();
         androidDriver.quit();

@@ -75,7 +75,7 @@
                 </configuration>
             </plugin>
 
-            <plugin>
+            <plugin> <!--Plugin for following the Java code conventions-->
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-checkstyle-plugin</artifactId>
                 <version>${maven-checkstyle-plugin.version}</version>
