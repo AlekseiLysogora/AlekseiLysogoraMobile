@@ -1,4 +1,4 @@
-package pageObjects;
+package pageobjects;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
@@ -12,7 +12,7 @@ public class NativePageObject  {
     WebElement signInBtn;
 
     public NativePageObject(AppiumDriver appiumDriver) {
-        PageFactory.initElements( new AppiumFieldDecorator(appiumDriver), this);
+        PageFactory.initElements(new AppiumFieldDecorator(appiumDriver), this);
     }
 
 

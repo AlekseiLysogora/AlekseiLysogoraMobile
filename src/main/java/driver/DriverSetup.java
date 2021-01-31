@@ -18,12 +18,13 @@ public class DriverSetup {
         desiredCapabilities.setCapability("platformName", "Android");
 
         //path to app
-        //copy the application (.apk), which will become AUT, to the specified location, e.g. "resources" folder of the project
+        /*copy the application (.apk), which will become AUT, to the specified location,
+        e.g. "resources" folder of the project*/
         File applicationDirectory = new File("src/main/resources/");
-        File EPAMTestApp = new File(applicationDirectory, "EPAMTestApp.apk");
+        File epamTestApp = new File(applicationDirectory, "EPAMTestApp.apk");
 
         //other capability
-        desiredCapabilities.setCapability("EPAMTestApp", EPAMTestApp.getAbsolutePath());
+        desiredCapabilities.setCapability("EPAMTestApp", epamTestApp.getAbsolutePath());
 
         //init driver for local Appium server with capabilities have been set
         androidDriver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), desiredCapabilities);
