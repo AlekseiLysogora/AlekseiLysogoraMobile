@@ -9,7 +9,7 @@ import setup.BaseTest;
 public class WebMobileTests extends BaseTest {
 
     @Test(groups = {"web"}, description = "Make sure that we've opened Google search page")
-    public void simpleWebTest() throws InterruptedException {
+    public void simpleWebTest() {
         getDriver().get("http://google.com"); // openGoogle search page
 
         // Make sure that page has been loaded completely

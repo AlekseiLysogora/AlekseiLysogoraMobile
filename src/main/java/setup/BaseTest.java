@@ -3,7 +3,10 @@ package setup;
 import io.appium.java_client.AppiumDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.annotations.*;
+import org.testng.asserts.SoftAssert;
 import pageobjects.PageObject;
+import steps.action.ActionsForNativeApplication;
+import steps.assertion.AssertionForNativeApplication;
 
 import java.io.File;
 import java.net.MalformedURLException;
@@ -13,16 +16,16 @@ import java.util.concurrent.TimeUnit;
 public class BaseTest implements IDriver {
 
     private static AppiumDriver appiumDriver; // singleton
-    IPageObject po;
+    IPageObject pageObject;
 
     @Override
     public AppiumDriver getDriver() {
         return appiumDriver;
     }
 
-    public IPageObject getPo() {
-        return po;
-    }
+    protected SoftAssert softAssert;
+    protected ActionsForNativeApplication step;
+    protected AssertionForNativeApplication assertionStep;
 
     @Parameters({"platformName","appType","deviceName","browserName","app"})
     @BeforeSuite(alwaysRun = true)
@@ -34,10 +37,14 @@ public class BaseTest implements IDriver {
         setAppiumDriver(platformName, deviceName, browserName, app);
         setPageObject(appType, appiumDriver);
 
+        softAssert = new SoftAssert();
+
+        step = new ActionsForNativeApplication(getDriver());
+        assertionStep = new AssertionForNativeApplication(getDriver(), softAssert);
     }
 
     @AfterSuite(alwaysRun = true)
-    public void tearDown() throws Exception {
+    public void tearDown(){
         System.out.println("After");
         appiumDriver.closeApp();
     }
@@ -69,6 +76,6 @@ public class BaseTest implements IDriver {
     }
 
     private void setPageObject(String appType, AppiumDriver appiumDriver) throws Exception {
-        po = new PageObject(appType, appiumDriver);
+        pageObject = new PageObject(appType, appiumDriver);
     }
 }

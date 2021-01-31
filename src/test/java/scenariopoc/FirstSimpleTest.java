@@ -14,7 +14,7 @@ public class FirstSimpleTest extends DriverSetup {
         prepareAndroidWeb();
     }
 
-    //@Test(description = "Just click on button 'Register new user'")
+    @Test(description = "Just click on button 'Register new user'")
     public void simpleAndroidNativeApplicationTest() {
         String appPackageName = "platkovsky.alexey.epamtestapp:id/";
         By registerButton = By.id(appPackageName + "register_button");
