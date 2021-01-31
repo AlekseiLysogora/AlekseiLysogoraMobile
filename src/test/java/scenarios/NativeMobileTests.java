@@ -10,7 +10,8 @@ public class NativeMobileTests extends BaseTest {
             IllegalAccessException,
             NoSuchFieldException,
             InstantiationException {
-        getPo().getWelement("signInBtn").click();
+
+        getPo().getWebElement("signInBtn").click();
         System.out.println("Simplest Android native test done");
 
     }

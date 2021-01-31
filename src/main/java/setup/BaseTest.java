@@ -29,6 +29,7 @@ public class BaseTest implements IDriver {
     public void setUp(
             String platformName, String appType, String deviceName,
             @Optional("") String browserName, @Optional("") String app) throws Exception {
+
         System.out.println("Before: app type - " + appType);
         setAppiumDriver(platformName, deviceName, browserName, app);
         setPageObject(appType, appiumDriver);
@@ -43,6 +44,7 @@ public class BaseTest implements IDriver {
 
     private void setAppiumDriver(
             String platformName, String deviceName, String browserName, String app) {
+
         DesiredCapabilities capabilities = new DesiredCapabilities();
         //mandatory Android capabilities
         capabilities.setCapability("platformName",platformName);
@@ -69,6 +71,4 @@ public class BaseTest implements IDriver {
     private void setPageObject(String appType, AppiumDriver appiumDriver) throws Exception {
         po = new PageObject(appType, appiumDriver);
     }
-
-
 }

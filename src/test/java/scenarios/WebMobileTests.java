@@ -8,9 +8,9 @@ import setup.BaseTest;
 
 public class WebMobileTests extends BaseTest {
 
-    @Test(groups = {"web"}, description = "Make sure that we've opened IANA homepage")
+    @Test(groups = {"web"}, description = "Make sure that we've opened Google search page")
     public void simpleWebTest() throws InterruptedException {
-        getDriver().get("http://iana.org"); // open IANA homepage
+        getDriver().get("http://google.com"); // openGoogle search page
 
         // Make sure that page has been loaded completely
         new WebDriverWait(getDriver(), 10).until(
@@ -18,10 +18,10 @@ public class WebMobileTests extends BaseTest {
                         .executeScript("return document.readyState").equals("complete")
         );
 
-        // Check IANA homepage title
+        // Check Google search page  title
         assert ((WebDriver) getDriver())
                 .getTitle()
-                .equals("Internet Assigned Numbers Authority") : "This is not IANA homepage";
+                .equals("Google") : "This is not Google search page";
 
         // Log that test finished
         System.out.println("Site opening done");

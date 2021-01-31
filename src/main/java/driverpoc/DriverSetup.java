@@ -1,4 +1,4 @@
-package driver;
+package driverpoc;
 
 import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -11,7 +11,7 @@ public class DriverSetup {
 
     protected AndroidDriver androidDriver;
 
-    /**
+    /*
      * Set of capabilities to test Android native application
      * @throws MalformedURLException
      */
@@ -34,7 +34,7 @@ public class DriverSetup {
         androidDriver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), desiredCapabilities);
     }
 
-    /**
+    /*
      * Set of capabilities to test Android web application
      * @throws MalformedURLException
      */

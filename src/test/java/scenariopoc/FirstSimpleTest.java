@@ -1,6 +1,6 @@
-package scenarios;
+package scenariopoc;
 
-import driver.DriverSetup;
+import driverpoc.DriverSetup;
 import org.openqa.selenium.By;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
