@@ -1,6 +1,8 @@
 To start the project, follow these steps.
 
-Required version of JDK is Java 8.
+Required version of JDK is **Java 8**.
+
+>Please, select a preferred way of testing: using an emulator or a physical device. Depending on which way you gonna use, depends what steps you should perform before the run project - open the AVD manager to run an emulator or connect a physical device through USB port to your machine.
 
 ## **1. Installing of the project**
 Clone this repository to your machine.
@@ -9,8 +11,6 @@ Open the project through you preferred an integrated development environment (ID
 
 **Note**  
 Make sure that environment variables (JAVA_HOME, MAVEN_HOME, ANDROID_HOME), Path, and basic tools package of software development were set up at your machine.
-
->Please, select a preferred way of testing: using an emulator or a physical device. Depending on which way you gonna use, depends what steps you should perform before the run project - open the AVD manager to run an emulator or connect a physical device through USB port to your machine.
 
 **Note**  
 Please, make sure that opened project isn't had any issues underlined by the red color of the code's text.
