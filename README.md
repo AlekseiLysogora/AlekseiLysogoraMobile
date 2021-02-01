@@ -21,6 +21,9 @@ The second command is ***mvn clean compile test-compile*** the purpose of this c
 
 
 ## **2. Run the project**
+Start the local Appium server at a machine at which you gonna running tests.
+>Please, make sure that your device (client) connected with Appium server.
+
 To run the suite aimed to run the test of *native* application, please, open the terminal and write the following string  ***mvn clean test -P native***
 
 To run the test purposed to *web* application, please, write in the terminal the following command ***mvn clean test -P web***
