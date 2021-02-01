@@ -2,9 +2,13 @@ To start the project, follow these steps.
 
 Required version of JDK is **Java 8**.
 
+## **1. Preparatory steps**
 >Please, select a preferred way of testing: using an emulator or a physical device. Depending on which way you gonna use, depends what steps you should perform before the run project - open the AVD manager to run an emulator or connect a physical device through USB port to your machine. Please, don't forget to change the name of your device in the testNG suite of the project.
 
-## **1. Installing of the project**
+The pre-installed server address is http://localhost:4723/wd/hub
+Please, don't forget to change the server address if it isn't the same for you. You may do it at pom.xml file, where you can find a parameter which named as ts.appium (24 line)
+
+## **2. Installing of the project**
 Clone this repository to your machine.
 
 Open the project through you preferred an integrated development environment (IDE).
@@ -20,7 +24,7 @@ The first one is ***mvn clean compile*** this command is aimed to validate that 
 The second command is ***mvn clean compile test-compile*** the purpose of this command is to validate the test package.
 
 
-## **2. Run the project**
+## **3. Run the project**
 Start the local Appium server at a machine at which you gonna running tests.
 >Please, make sure that your device (client) connected with Appium server.
 
