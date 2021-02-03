@@ -6,13 +6,15 @@ import org.testng.asserts.SoftAssert;
 import pageobjects.webapp.GoogleHomePage;
 import setup.SetupDriver;
 
+
 public class AssertionForWebApplication extends SetupDriver {
 
     private WebDriver driver;
     private GoogleHomePage googleHomePage;
     private SoftAssert softAssert;
 
-    public AssertionForWebApplication(AppiumDriver appiumDriver, SoftAssert softAssert, GoogleHomePage googleHomePage) {
+    public AssertionForWebApplication(AppiumDriver appiumDriver, SoftAssert softAssert,
+                                      GoogleHomePage googleHomePage) {
         driver = appiumDriver;
         this.softAssert = softAssert;
         this.googleHomePage = googleHomePage;
@@ -23,5 +25,9 @@ public class AssertionForWebApplication extends SetupDriver {
         softAssert.assertTrue(actual.equals(expectedGoogleHomePageTitle),
                 "The title of the Google Home page of the web "
                         + "application isn't matched with the expected result");
+    }
+
+    public void checkThatRelevantResultsNan() {
+        //googleHomePage.getRelevantResults();
     }
 }

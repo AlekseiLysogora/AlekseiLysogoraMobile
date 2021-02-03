@@ -1,10 +1,10 @@
 package scenarios;
 
-import coretest.CoreTest;
+import coretest.InitializationTest;
 import dataprovider.DataProviderForTests;
 import org.testng.annotations.Test;
 
-public class WebMobileTests extends CoreTest {
+public class WebMobileTests extends InitializationTest {
 
     @Test(
             groups = {"web"},
@@ -18,9 +18,10 @@ public class WebMobileTests extends CoreTest {
         stepWebApp.openGoogleHomePage(googleHomePagePath);
         assertionStepWebApp.checkThatGoogleHomePageWasOpened(googleHomePageTitle);
         stepWebApp.fillSearchTextFieldByRequestWord(searchingWord);
+        assertionStepWebApp.checkThatRelevantResultsNan();
 
         // Log that test finished
-        System.out.println("Site opening done");
+        System.out.println("Simplest Android web test done");
     }
 
 }

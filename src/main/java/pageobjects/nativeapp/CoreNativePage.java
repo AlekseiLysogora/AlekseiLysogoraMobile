@@ -1,13 +1,14 @@
 package pageobjects.nativeapp;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import setup.SetupDriver;
+import pageobjects.AbstractPage;
 
-public class CoreNativePage extends SetupDriver {
+public class CoreNativePage extends AbstractPage {
 
-    public WebDriver driver;
-
+    protected WebDriver driver;
     protected WebDriverWait wait;
 
     protected static final String APP_PACKAGE_NAME = "platkovsky.alexey.epamtestapp:id/";
@@ -20,5 +21,12 @@ public class CoreNativePage extends SetupDriver {
     public CoreNativePage(WebDriver driver) {
         this.driver = driver;
         wait = new WebDriverWait(driver, 5);
+    }
+
+    @Override
+    protected WebElement waitUntilExpectedWebElementVisible(
+                                        WebElement webElementThatShouldBeWaited) {
+        wait.until(ExpectedConditions.visibilityOf(webElementThatShouldBeWaited));
+        return webElementThatShouldBeWaited;
     }
 }

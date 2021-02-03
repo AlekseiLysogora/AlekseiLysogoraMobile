@@ -1,20 +1,21 @@
 package pageobjects.webapp;
 
+import java.util.List;
+
 import io.appium.java_client.AppiumDriver;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.*;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class GoogleHomePage extends CoreWebPage {
 
     @FindBy(xpath = ("//input[@name='q']"))
     WebElement searchTextField;
 
-    private WebDriverWait wait;
+    @FindBy(xpath = ("//*[@id='rso']/div/div/div"))
+    List<WebElement> resultSearchList;
 
-    public GoogleHomePage(AppiumDriver appiumDriver, WebDriverWait wait) {
+    public GoogleHomePage(AppiumDriver appiumDriver) {
         super(appiumDriver);
-        this.wait = wait;
         PageFactory.initElements(appiumDriver, this);
     }
 
@@ -30,6 +31,11 @@ public class GoogleHomePage extends CoreWebPage {
     }
 
     public void fillSearchTextFieldByRequestWord(String searchingWord) {
-        searchTextField.sendKeys(searchingWord);
+        waitUntilExpectedWebElementVisible(searchTextField).sendKeys(searchingWord);
+        searchTextField.sendKeys(Keys.ENTER);
+    }
+
+    public List<WebElement> getRelevantResults() {
+        return resultSearchList;
     }
 }

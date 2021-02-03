@@ -6,8 +6,6 @@ import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class NativeHomePage extends CoreNativePage {
 
@@ -23,31 +21,24 @@ public class NativeHomePage extends CoreNativePage {
     @AndroidFindBy(id = APP_PACKAGE_NAME + "email_sign_in_button")
     WebElement signInBtn;
 
-    private WebDriverWait wait;
-
-    public NativeHomePage(AppiumDriver appiumDriver, WebDriverWait wait) {
+    public NativeHomePage(AppiumDriver appiumDriver) {
         super(appiumDriver);
-        this.wait = wait;
         PageFactory.initElements(new AppiumFieldDecorator(appiumDriver), this);
     }
 
     public void openRegistrationPage() {
-        wait.until(ExpectedConditions.visibilityOf(registerNewAccountBtn));
-        registerNewAccountBtn.click();
+        waitUntilExpectedWebElementVisible(registerNewAccountBtn).click();
     }
 
     public void fillEmailTextFieldByCreatedEmail(String createdEmail) {
-        wait.until(ExpectedConditions.visibilityOf(inputLoginOrEmailTextField));
-        inputLoginOrEmailTextField.sendKeys(createdEmail);
+        waitUntilExpectedWebElementVisible(inputLoginOrEmailTextField).sendKeys(createdEmail);
     }
 
     public void fillPasswordTextFieldByCreatedPassword(String createdPassword) {
-        wait.until(ExpectedConditions.visibilityOf(passwordTextField));
-        passwordTextField.sendKeys(createdPassword);
+        waitUntilExpectedWebElementVisible(passwordTextField).sendKeys(createdPassword);
     }
 
     public void clickOnSignInButton() {
-        wait.until(ExpectedConditions.visibilityOf(signInBtn));
-        signInBtn.click();
+        waitUntilExpectedWebElementVisible(signInBtn).click();
     }
 }

@@ -1,10 +1,10 @@
 package scenarios;
 
-import coretest.CoreTest;
+import coretest.InitializationTest;
 import dataprovider.DataProviderForTests;
 import org.testng.annotations.Test;
 
-public class NativeMobileTests extends CoreTest {
+public class NativeMobileTests extends InitializationTest {
 
     @Test(
             groups = {"native"},
@@ -17,19 +17,20 @@ public class NativeMobileTests extends CoreTest {
             String expectedBudgetPage, String email, String username, String password) {
 
         stepNativeApp.openHomePageAndClickRegistrationBtn();
-        assertionStepNativeApp.checkThatHomePageWasOpened(expectedHomePageTitle);
+        assertionStepNativeApp.checkThatHomePageWasOpened(expectedHomePageTitle); //todo
         stepNativeApp.fillEmailTextFieldByNewEmail(email);
         stepNativeApp.fillUsernameTextFieldByNewUsername(username);
         stepNativeApp.fillPasswordTextFieldByNewPassword(password);
         stepNativeApp.fillConfirmPasswordTextFieldByNewPassword(password);
-        stepNativeApp.clickOnCheckBox(); // <<---??
+        stepNativeApp.clickOnCheckBox(); //todo <<---??
         stepNativeApp.clickOnRegistrationButton();
-        assertionStepNativeApp.checkThatRegistrationPageWasOpened(expectedRegistrationPage);
+        assertionStepNativeApp.checkThatRegistrationPageWasOpened(expectedRegistrationPage); //todo
         stepNativeApp.fillEmailTextFieldByCreatedEmail(email);
         stepNativeApp.fillPasswordTextFieldByCreatedPassword(password);
         stepNativeApp.clickOnSignInButton();
-        assertionStepNativeApp.checkThatBudgetPageWasOpened(expectedBudgetPage);
+        assertionStepNativeApp.checkThatBudgetPageWasOpened(expectedBudgetPage); //todo
 
+        // Log that test finished
         System.out.println("Simplest Android native test done");
     }
 

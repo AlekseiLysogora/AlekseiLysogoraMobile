@@ -2,10 +2,7 @@ package coretest;
 
 import io.appium.java_client.AppiumDriver;
 
-import org.openqa.selenium.support.ui.WebDriverWait;
-
 import org.testng.annotations.*;
-import org.testng.ITestContext;
 import org.testng.asserts.SoftAssert;
 
 import pageobjects.nativeapp.*;
@@ -18,10 +15,9 @@ import steps.nativeapp.assertion.AssertionForNativeApplication;
 import steps.webapp.action.ActionsForWebApplication;
 import steps.webapp.assertion.AssertionForWebApplication;
 
-public abstract class CoreTest extends SetupDriver {
+public abstract class InitializationTest extends SetupDriver {
 
     protected AppiumDriver driver;
-    protected WebDriverWait wait;
     protected SoftAssert softAssertion;
 
     protected GoogleHomePage homePage;
@@ -37,15 +33,15 @@ public abstract class CoreTest extends SetupDriver {
     @BeforeMethod(
             alwaysRun = true,
             description = "This method has the purpose to initialize the test's core classes")
-    public void initializationTestCore(ITestContext testContext) {
+    public void initializationTestCore() {
         driver =  getDriver();
-        wait = new WebDriverWait(driver, 5);
         softAssertion = new SoftAssert();
 
-        stepNativeApp = new ActionsForNativeApplication(driver, wait);
-        assertionStepNativeApp = new AssertionForNativeApplication(driver, softAssertion, nativeHomePage, registrationPage);
+        stepNativeApp = new ActionsForNativeApplication(driver);
+        assertionStepNativeApp = new AssertionForNativeApplication(driver, softAssertion,
+                                                           nativeHomePage, registrationPage);
 
-        stepWebApp = new ActionsForWebApplication(driver, wait);
+        stepWebApp = new ActionsForWebApplication(driver);
         assertionStepWebApp = new AssertionForWebApplication(driver, softAssertion, homePage);
     }
 }
