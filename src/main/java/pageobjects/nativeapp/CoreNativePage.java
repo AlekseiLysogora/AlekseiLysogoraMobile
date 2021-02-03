@@ -1,11 +1,14 @@
 package pageobjects.nativeapp;
 
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import setup.BaseTest;
+import setup.SetupDriver;
 
-public class CoreNativePage extends BaseTest {
+public class CoreNativePage extends SetupDriver {
 
-    protected WebDriverWait wait = new WebDriverWait(getDriver(), 5);
+    public WebDriver driver;
+
+    protected WebDriverWait wait;
 
     protected static final String APP_PACKAGE_NAME = "platkovsky.alexey.epamtestapp:id/";
     protected static final String CLICK_ON_CHECKBOX = "/hierarchy/android.widget."
@@ -13,4 +16,9 @@ public class CoreNativePage extends BaseTest {
             + ".LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget"
             + ".FrameLayout[2]/android.widget.LinearLayout/android.widget.ScrollView/android.widget"
             + ".LinearLayout/android.widget.CheckedTextView";
+
+    public CoreNativePage(WebDriver driver) {
+        this.driver = driver;
+        wait = new WebDriverWait(driver, 5);
+    }
 }

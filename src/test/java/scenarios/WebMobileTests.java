@@ -1,27 +1,23 @@
 package scenarios;
 
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import coretest.CoreTest;
+import dataprovider.DataProviderForTests;
 import org.testng.annotations.Test;
-import setup.BaseTest;
 
-public class WebMobileTests extends BaseTest {
+public class WebMobileTests extends CoreTest {
 
-    @Test(groups = {"web"}, description = "Make sure that we've opened Google search page")
-    public void simpleWebTest() {
-        getDriver().get("http://google.com"); // openGoogle search page
+    @Test(
+            groups = {"web"},
+            description = "Make sure that we've opened Google search page",
+            dataProvider = "dataWebApplication",
+            dataProviderClass = DataProviderForTests.class
+    )
+    public void simpleWebTest(String googleHomePagePath,
+                              String googleHomePageTitle, String searchingWord) {
 
-        // Make sure that page has been loaded completely
-        new WebDriverWait(getDriver(), 10).until(
-                wd -> ((JavascriptExecutor) wd)
-                        .executeScript("return document.readyState").equals("complete")
-        );
-
-        // Check Google search page  title
-        assert ((WebDriver) getDriver())
-                .getTitle()
-                .equals("Google") : "This is not Google search page";
+        stepWebApp.openGoogleHomePage(googleHomePagePath);
+        assertionStepWebApp.checkThatGoogleHomePageWasOpened(googleHomePageTitle);
+        stepWebApp.fillSearchTextFieldByRequestWord(searchingWord);
 
         // Log that test finished
         System.out.println("Site opening done");

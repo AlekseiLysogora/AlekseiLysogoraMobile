@@ -7,21 +7,17 @@ public class GetProperties {
     private ResourceBundle myBundle;
 
     public enum NameOfProperty {
-        NATIVE_LOCATORS,
-        WEB_LOCATORS,
-        TEST_DATA
+        NATIVE_APP,
+        WEB_APP
     }
 
     public GetProperties(NameOfProperty numberOfExercise) {
         switch (numberOfExercise) {
-            case NATIVE_LOCATORS:
-                myBundle = ResourceBundle.getBundle("locators/native");
-                break;
-            case WEB_LOCATORS:
-                myBundle = ResourceBundle.getBundle("locators/web");
-                break;
-            case TEST_DATA:
+            case NATIVE_APP:
                 myBundle = ResourceBundle.getBundle("testdata/native");
+                break;
+            case WEB_APP:
+                myBundle = ResourceBundle.getBundle("testdata/web");
                 break;
             default:
                 System.err.println("\n>The resource isn't selected. Check GetProperties.class<\n");

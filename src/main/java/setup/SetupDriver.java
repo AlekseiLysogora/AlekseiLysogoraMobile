@@ -1,19 +1,17 @@
 package setup;
 
-import io.appium.java_client.AppiumDriver;
-import org.openqa.selenium.remote.DesiredCapabilities;
-import org.testng.annotations.*;
-import org.testng.asserts.SoftAssert;
-import pageobjects.PageObject;
-import steps.action.ActionsForNativeApplication;
-import steps.assertion.AssertionForNativeApplication;
-
 import java.io.File;
-import java.net.MalformedURLException;
-import java.net.URL;
+import java.net.*;
 import java.util.concurrent.TimeUnit;
 
-public class BaseTest implements IDriver {
+import io.appium.java_client.AppiumDriver;
+
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.testng.annotations.*;
+
+import pageobjects.PageObject;
+
+public class SetupDriver implements IDriver {
 
     private static AppiumDriver appiumDriver; // singleton
     IPageObject pageObject;
@@ -22,10 +20,6 @@ public class BaseTest implements IDriver {
     public AppiumDriver getDriver() {
         return appiumDriver;
     }
-
-    protected SoftAssert softAssert;
-    protected ActionsForNativeApplication step;
-    protected AssertionForNativeApplication assertionStep;
 
     @Parameters({"platformName","appType","deviceName","browserName","app"})
     @BeforeSuite(alwaysRun = true)
@@ -36,16 +30,11 @@ public class BaseTest implements IDriver {
         System.out.println("Before: app type - " + appType);
         setAppiumDriver(platformName, deviceName, browserName, app);
         setPageObject(appType, appiumDriver);
-
-        softAssert = new SoftAssert();
-
-        step = new ActionsForNativeApplication(getDriver());
-        assertionStep = new AssertionForNativeApplication(getDriver(), softAssert);
     }
 
     @AfterSuite(alwaysRun = true)
     public void tearDown() {
-        System.out.println("After");
+        System.out.println("After Suite");
         appiumDriver.closeApp();
     }
 

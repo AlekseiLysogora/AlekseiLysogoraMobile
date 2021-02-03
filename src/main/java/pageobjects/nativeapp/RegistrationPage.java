@@ -1,11 +1,12 @@
 package pageobjects.nativeapp;
 
 import io.appium.java_client.AppiumDriver;
-import io.appium.java_client.pagefactory.AndroidFindBy;
-import io.appium.java_client.pagefactory.AppiumFieldDecorator;
+import io.appium.java_client.pagefactory.*;
+
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class RegistrationPage extends CoreNativePage {
 
@@ -27,8 +28,11 @@ public class RegistrationPage extends CoreNativePage {
     @AndroidFindBy(id = APP_PACKAGE_NAME + "register_new_account_button")
     WebElement registrationButton;
 
+    private WebDriverWait wait;
 
-    public RegistrationPage(AppiumDriver appiumDriver) {
+    public RegistrationPage(AppiumDriver appiumDriver, WebDriverWait wait) {
+        super(appiumDriver);
+        this.wait = wait;
         PageFactory.initElements(new AppiumFieldDecorator(appiumDriver), this);
     }
 

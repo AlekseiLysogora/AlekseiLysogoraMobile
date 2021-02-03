@@ -7,6 +7,7 @@ import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class NativeHomePage extends CoreNativePage {
 
@@ -21,6 +22,14 @@ public class NativeHomePage extends CoreNativePage {
 
     @AndroidFindBy(id = APP_PACKAGE_NAME + "email_sign_in_button")
     WebElement signInBtn;
+
+    private WebDriverWait wait;
+
+    public NativeHomePage(AppiumDriver appiumDriver, WebDriverWait wait) {
+        super(appiumDriver);
+        this.wait = wait;
+        PageFactory.initElements(new AppiumFieldDecorator(appiumDriver), this);
+    }
 
     public void openRegistrationPage() {
         wait.until(ExpectedConditions.visibilityOf(registerNewAccountBtn));
@@ -41,9 +50,4 @@ public class NativeHomePage extends CoreNativePage {
         wait.until(ExpectedConditions.visibilityOf(signInBtn));
         signInBtn.click();
     }
-
-    public NativeHomePage(AppiumDriver appiumDriver) {
-        PageFactory.initElements(new AppiumFieldDecorator(appiumDriver), this);
-    }
-
 }
