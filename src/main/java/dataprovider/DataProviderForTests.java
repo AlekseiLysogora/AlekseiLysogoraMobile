@@ -15,10 +15,6 @@ public class DataProviderForTests {
     Random random = new Random();
     int randomInt = random.nextInt(10000) + 1;
 
-    public String expectedHomePageTitle = getNativeAppProperty
-            .getResource("expectedHomePageTitle");
-    public String expectedRegistrationPage = getNativeAppProperty
-            .getResource("expectedRegistrationPage");
     public String expectedBudgetPage = getNativeAppProperty
             .getResource("expectedBudgetPage");
 
@@ -41,8 +37,7 @@ public class DataProviderForTests {
     @DataProvider(name = "assertDataNativeApplication")
     public Object[][] assertTextDataSet() {
         return new Object[][]{
-                {expectedHomePageTitle, expectedRegistrationPage, expectedBudgetPage,
-                 newEmail, newUsername, newPassword}
+                {expectedBudgetPage, newEmail, newUsername, newPassword}
         };
     }
 

@@ -20,9 +20,10 @@ public abstract class InitializationTest extends SetupDriver {
     protected AppiumDriver driver;
     protected SoftAssert softAssertion;
 
-    protected GoogleHomePage homePage;
     protected NativeHomePage nativeHomePage;
     protected RegistrationPage registrationPage;
+
+    protected GoogleHomePage homePage;
 
     protected ActionsForNativeApplication stepNativeApp;
     protected AssertionForNativeApplication assertionStepNativeApp;
@@ -38,10 +39,9 @@ public abstract class InitializationTest extends SetupDriver {
         softAssertion = new SoftAssert();
 
         stepNativeApp = new ActionsForNativeApplication(driver);
-        assertionStepNativeApp = new AssertionForNativeApplication(driver, softAssertion,
-                                                           nativeHomePage, registrationPage);
+        assertionStepNativeApp = new AssertionForNativeApplication(driver, softAssertion);
 
         stepWebApp = new ActionsForWebApplication(driver);
-        assertionStepWebApp = new AssertionForWebApplication(driver, softAssertion, homePage);
+        assertionStepWebApp = new AssertionForWebApplication(driver, softAssertion);
     }
 }

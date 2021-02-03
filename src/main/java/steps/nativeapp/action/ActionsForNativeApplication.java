@@ -1,6 +1,7 @@
 package steps.nativeapp.action;
 
 import io.appium.java_client.AppiumDriver;
+
 import pageobjects.nativeapp.NativeHomePage;
 import pageobjects.nativeapp.RegistrationPage;
 

@@ -1,9 +1,11 @@
 package pageobjects.nativeapp;
 
+import io.appium.java_client.AppiumDriver;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
 import pageobjects.AbstractPage;
 
 public class CoreNativePage extends AbstractPage {
@@ -18,9 +20,9 @@ public class CoreNativePage extends AbstractPage {
             + ".FrameLayout[2]/android.widget.LinearLayout/android.widget.ScrollView/android.widget"
             + ".LinearLayout/android.widget.CheckedTextView";
 
-    public CoreNativePage(WebDriver driver) {
-        this.driver = driver;
-        wait = new WebDriverWait(driver, 5);
+    public CoreNativePage(AppiumDriver appiumDriver) {
+        this.driver = appiumDriver;
+        wait = new WebDriverWait(appiumDriver, 5);
     }
 
     @Override

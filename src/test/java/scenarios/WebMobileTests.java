@@ -18,6 +18,7 @@ public class WebMobileTests extends InitializationTest {
         stepWebApp.openGoogleHomePage(googleHomePagePath);
         assertionStepWebApp.checkThatGoogleHomePageWasOpened(googleHomePageTitle);
         stepWebApp.fillSearchTextFieldByRequestWord(searchingWord);
+        assertionStepWebApp.checkOpenedGoogleResultSearchPage();
         assertionStepWebApp.checkThatRelevantResultsNan();
 
         // Log that test finished

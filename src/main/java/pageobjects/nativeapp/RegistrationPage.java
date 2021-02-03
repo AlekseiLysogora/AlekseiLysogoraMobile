@@ -32,32 +32,26 @@ public class RegistrationPage extends CoreNativePage {
     }
 
     public void setNewEmail(String newEmail) {
-        waitUntilExpectedWebElementVisible(emailTextField);
-        emailTextField.sendKeys(newEmail);
+        waitUntilExpectedWebElementVisible(emailTextField).sendKeys(newEmail);
     }
 
     public void setNewUsername(String newUsername) {
-        waitUntilExpectedWebElementVisible(usernameTextField);
-        usernameTextField.sendKeys(newUsername);
+        waitUntilExpectedWebElementVisible(usernameTextField).sendKeys(newUsername);
     }
 
     public void setNewPassword(String newPassword) {
-        waitUntilExpectedWebElementVisible(passwordTextField);
-        passwordTextField.sendKeys(newPassword);
+        waitUntilExpectedWebElementVisible(passwordTextField).sendKeys(newPassword);
     }
 
     public void confirmPasswordTextField(String newPassword) {
-        waitUntilExpectedWebElementVisible(confirmPasswordTextField);
-        confirmPasswordTextField.sendKeys(newPassword);
+        waitUntilExpectedWebElementVisible(confirmPasswordTextField).sendKeys(newPassword);
     }
 
     public void clickOnCheckBox() {
-        waitUntilExpectedWebElementVisible(clickOnCheckBox);
-        clickOnCheckBox.click();
+        waitUntilExpectedWebElementVisible(clickOnCheckBox).click();
     }
 
     public void clickOnRegistrationButton() {
-        waitUntilExpectedWebElementVisible(registrationButton);
-        registrationButton.click();
+        waitUntilExpectedWebElementVisible(registrationButton).click();
     }
 }

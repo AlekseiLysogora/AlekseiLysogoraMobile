@@ -1,9 +1,9 @@
 package pageobjects.webapp;
 
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import io.appium.java_client.AppiumDriver;
+import org.openqa.selenium.*;
+import org.openqa.selenium.support.ui.*;
+
 import pageobjects.AbstractPage;
 
 public class CoreWebPage extends AbstractPage {
@@ -11,9 +11,9 @@ public class CoreWebPage extends AbstractPage {
     protected WebDriver driver;
     protected WebDriverWait wait;
 
-    public CoreWebPage(WebDriver driver) {
-        this.driver = driver;
-        wait = new WebDriverWait(driver, 5);
+    public CoreWebPage(AppiumDriver appiumDriver) {
+        this.driver = appiumDriver;
+        wait = new WebDriverWait(appiumDriver, 5);
     }
 
     @Override

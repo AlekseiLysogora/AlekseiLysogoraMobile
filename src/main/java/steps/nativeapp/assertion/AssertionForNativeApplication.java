@@ -1,46 +1,31 @@
 package steps.nativeapp.assertion;
 
 import io.appium.java_client.AppiumDriver;
+
 import org.openqa.selenium.WebDriver;
 import org.testng.asserts.SoftAssert;
-import pageobjects.nativeapp.NativeHomePage;
-import pageobjects.nativeapp.RegistrationPage;
+
+import pageobjects.nativeapp.BudgetPage;
+
 import setup.SetupDriver;
 
 public class AssertionForNativeApplication extends SetupDriver {
 
     private WebDriver driver;
-    private NativeHomePage nativeHomePage;
-    private RegistrationPage registrationPage;
+    private BudgetPage budgetPage;
     private SoftAssert softAssert;
 
-    public AssertionForNativeApplication(AppiumDriver appiumDriver, SoftAssert softAssert,
-                                         NativeHomePage nativeHomePage,
-                                         RegistrationPage registrationPage) {
+    public AssertionForNativeApplication(AppiumDriver appiumDriver, SoftAssert softAssert) {
         driver = appiumDriver;
-        this.nativeHomePage = nativeHomePage;
-        this.registrationPage = registrationPage;
+        this.budgetPage = new BudgetPage(appiumDriver);
         this.softAssert = softAssert;
     }
 
-    public void checkThatHomePageWasOpened(String expectedHomePageTitle) {
-        String actual = "EPAM Test App";
-
-        softAssert.assertTrue(actual.equals(expectedHomePageTitle),
-                "The title of the Home page of the native "
-                        + "application isn't matched with the expected result");
-    }
-
-    public void checkThatRegistrationPageWasOpened(String expectedRegistrationPage) {
-        String actual = "Registration";
-
-        softAssert.assertTrue(actual.equals(expectedRegistrationPage),
-                "The title of the Registration Page of the native "
-                        + "application isn't matched with the expected result");
-    }
-
     public void checkThatBudgetPageWasOpened(String expectedBudgetPage) {
-        String actual = "BudgetActivity";
+        String actual = budgetPage.getActivityTitle();
+
+        //System.out.println("actual BudgetPageTitle >> " + actual);
+        //System.out.println("expected BudgetPageTitle >> " + expectedBudgetPage);
 
         softAssert.assertTrue(actual.equals(expectedBudgetPage),
                 "The title of the Budget Page of the native "

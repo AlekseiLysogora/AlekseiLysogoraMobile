@@ -12,23 +12,20 @@ public class NativeMobileTests extends InitializationTest {
             dataProvider = "assertDataNativeApplication",
             dataProviderClass = DataProviderForTests.class
     )
-    public void simpleNativeTest(
-            String expectedHomePageTitle, String expectedRegistrationPage,
-            String expectedBudgetPage, String email, String username, String password) {
+    public void simpleNativeTest(String expectedBudgetPage, String email,
+                                 String username, String password) {
 
         stepNativeApp.openHomePageAndClickRegistrationBtn();
-        assertionStepNativeApp.checkThatHomePageWasOpened(expectedHomePageTitle); //todo
         stepNativeApp.fillEmailTextFieldByNewEmail(email);
         stepNativeApp.fillUsernameTextFieldByNewUsername(username);
         stepNativeApp.fillPasswordTextFieldByNewPassword(password);
         stepNativeApp.fillConfirmPasswordTextFieldByNewPassword(password);
         stepNativeApp.clickOnCheckBox(); //todo <<---??
         stepNativeApp.clickOnRegistrationButton();
-        assertionStepNativeApp.checkThatRegistrationPageWasOpened(expectedRegistrationPage); //todo
         stepNativeApp.fillEmailTextFieldByCreatedEmail(email);
         stepNativeApp.fillPasswordTextFieldByCreatedPassword(password);
         stepNativeApp.clickOnSignInButton();
-        assertionStepNativeApp.checkThatBudgetPageWasOpened(expectedBudgetPage); //todo
+        assertionStepNativeApp.checkThatBudgetPageWasOpened(expectedBudgetPage);
 
         // Log that test finished
         System.out.println("Simplest Android native test done");
