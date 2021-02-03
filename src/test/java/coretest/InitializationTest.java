@@ -20,11 +20,6 @@ public abstract class InitializationTest extends SetupDriver {
     protected AppiumDriver driver;
     protected SoftAssert softAssertion;
 
-    protected NativeHomePage nativeHomePage;
-    protected RegistrationPage registrationPage;
-
-    protected GoogleHomePage homePage;
-
     protected ActionsForNativeApplication stepNativeApp;
     protected AssertionForNativeApplication assertionStepNativeApp;
 

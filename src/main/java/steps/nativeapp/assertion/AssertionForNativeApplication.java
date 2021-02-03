@@ -24,8 +24,8 @@ public class AssertionForNativeApplication extends SetupDriver {
     public void checkThatBudgetPageWasOpened(String expectedBudgetPage) {
         String actual = budgetPage.getActivityTitle();
 
-        //System.out.println("actual BudgetPageTitle >> " + actual);
-        //System.out.println("expected BudgetPageTitle >> " + expectedBudgetPage);
+        System.out.println("actual BudgetPageTitle >> " + actual);
+        System.out.println("expected BudgetPageTitle >> " + expectedBudgetPage);
 
         softAssert.assertTrue(actual.equals(expectedBudgetPage),
                 "The title of the Budget Page of the native "
