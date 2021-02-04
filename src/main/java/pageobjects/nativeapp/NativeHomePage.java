@@ -6,8 +6,9 @@ import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class NativeHomePage extends CoreNativePage {
+public class NativeHomePage extends BaseNativePage {
 
     @AndroidFindBy(id = APP_PACKAGE_NAME + "register_button")
     WebElement registerNewAccountBtn;
@@ -21,8 +22,8 @@ public class NativeHomePage extends CoreNativePage {
     @AndroidFindBy(id = APP_PACKAGE_NAME + "email_sign_in_button")
     WebElement signInBtn;
 
-    public NativeHomePage(AppiumDriver appiumDriver) {
-        super(appiumDriver);
+    public NativeHomePage(AppiumDriver appiumDriver, WebDriverWait webDriverWait) {
+        super(appiumDriver, webDriverWait);
         PageFactory.initElements(new AppiumFieldDecorator(appiumDriver), this);
     }
 

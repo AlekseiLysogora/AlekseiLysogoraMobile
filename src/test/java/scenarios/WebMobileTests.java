@@ -12,8 +12,8 @@ public class WebMobileTests extends InitializationTest {
             dataProvider = "dataWebApplication",
             dataProviderClass = DataProviderForTests.class
     )
-    public void simpleWebTest(String googleHomePagePath,
-                              String googleHomePageTitle, String searchingWord) {
+    public void searchWordInGoogleSystem(String googleHomePagePath,
+                                         String googleHomePageTitle, String searchingWord) {
 
         stepWebApp.openGoogleHomePage(googleHomePagePath);
         assertionStepWebApp.checkThatGoogleHomePageWasOpened(googleHomePageTitle);

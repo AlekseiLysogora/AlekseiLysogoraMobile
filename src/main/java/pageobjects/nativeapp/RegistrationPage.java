@@ -5,8 +5,9 @@ import io.appium.java_client.pagefactory.*;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class RegistrationPage extends CoreNativePage {
+public class RegistrationPage extends BaseNativePage {
 
     @AndroidFindBy(id = APP_PACKAGE_NAME + "registration_email")
     WebElement emailTextField;
@@ -26,8 +27,8 @@ public class RegistrationPage extends CoreNativePage {
     @AndroidFindBy(id = APP_PACKAGE_NAME + "register_new_account_button")
     WebElement registrationButton;
 
-    public RegistrationPage(AppiumDriver appiumDriver) {
-        super(appiumDriver);
+    public RegistrationPage(AppiumDriver appiumDriver, WebDriverWait webDriverWait) {
+        super(appiumDriver, webDriverWait);
         PageFactory.initElements(new AppiumFieldDecorator(appiumDriver), this);
     }
 

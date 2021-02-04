@@ -3,22 +3,24 @@ package steps.webapp.assertion;
 import io.appium.java_client.AppiumDriver;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.asserts.SoftAssert;
 
 import pageobjects.webapp.GoogleResultSearchPage;
-import setup.SetupDriver;
+import setup.SetupTest;
 
 
-public class AssertionForWebApplication extends SetupDriver {
+public class AssertionForWebApplication extends SetupTest {
 
     private WebDriver driver;
     private SoftAssert softAssert;
     private GoogleResultSearchPage resultSearchPage;
 
-    public AssertionForWebApplication(AppiumDriver appiumDriver, SoftAssert softAssert) {
+    public AssertionForWebApplication(AppiumDriver appiumDriver,
+                                      WebDriverWait webDriverWait, SoftAssert softAssert) {
         driver = appiumDriver;
         this.softAssert = softAssert;
-        this.resultSearchPage = new GoogleResultSearchPage(appiumDriver);
+        resultSearchPage = new GoogleResultSearchPage(appiumDriver, webDriverWait);
     }
 
     public void checkThatGoogleHomePageWasOpened(String expectedGoogleHomePageTitle) {

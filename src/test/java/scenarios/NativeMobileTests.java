@@ -12,8 +12,8 @@ public class NativeMobileTests extends InitializationTest {
             dataProvider = "assertDataNativeApplication",
             dataProviderClass = DataProviderForTests.class
     )
-    public void simpleNativeTest(String expectedBudgetPage, String email,
-                                 String username, String password) {
+    public void registerNewAccount(String expectedBudgetPage, String email,
+                                   String username, String password) {
 
         stepNativeApp.openHomePageAndClickRegistrationBtn();
         stepNativeApp.fillEmailTextFieldByNewEmail(email);

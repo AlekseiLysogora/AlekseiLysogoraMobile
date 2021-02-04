@@ -7,13 +7,15 @@ import java.util.concurrent.TimeUnit;
 import io.appium.java_client.AppiumDriver;
 
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.*;
 
 import pageobjects.PageObject;
 
-public class SetupDriver implements IDriver {
+public class SetupTest implements IDriver {
 
     private static AppiumDriver appiumDriver; // singleton
+    protected WebDriverWait webDriverWait;
     IPageObject pageObject;
 
     @Override

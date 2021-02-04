@@ -4,9 +4,9 @@ import io.appium.java_client.AppiumDriver;
 
 import org.openqa.selenium.WebElement;
 
+import pageobjects.nativeapp.CoreNativePage;
 import setup.IPageObject;
 
-import pageobjects.nativeapp.CoreNativePage;
 import pageobjects.webapp.CoreWebPage;
 
 import java.lang.reflect.Field;

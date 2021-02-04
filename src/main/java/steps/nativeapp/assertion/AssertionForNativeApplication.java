@@ -3,22 +3,24 @@ package steps.nativeapp.assertion;
 import io.appium.java_client.AppiumDriver;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.asserts.SoftAssert;
 
 import pageobjects.nativeapp.BudgetPage;
 
-import setup.SetupDriver;
+import setup.SetupTest;
 
-public class AssertionForNativeApplication extends SetupDriver {
+public class AssertionForNativeApplication extends SetupTest {
 
     private WebDriver driver;
     private BudgetPage budgetPage;
     private SoftAssert softAssert;
 
-    public AssertionForNativeApplication(AppiumDriver appiumDriver, SoftAssert softAssert) {
+    public AssertionForNativeApplication(AppiumDriver appiumDriver,
+                                         WebDriverWait webDriverWait, SoftAssert softAssert) {
         driver = appiumDriver;
-        this.budgetPage = new BudgetPage(appiumDriver);
         this.softAssert = softAssert;
+        budgetPage = new BudgetPage(appiumDriver, webDriverWait);
     }
 
     public void checkThatBudgetPageWasOpened(String expectedBudgetPage) {

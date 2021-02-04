@@ -3,14 +3,18 @@ package pageobjects.webapp;
 import io.appium.java_client.AppiumDriver;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.*;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class GoogleHomePage extends CoreWebPage {
+public class GoogleHomePage extends BaseWebPage {
 
     @FindBy(xpath = ("//input[@name='q']"))
     WebElement searchTextField;
 
-    public GoogleHomePage(AppiumDriver appiumDriver) {
-        super(appiumDriver);
+    private WebDriverWait webDriverWait;
+
+    public GoogleHomePage(AppiumDriver appiumDriver, WebDriverWait webDriverWait) {
+        super(appiumDriver, webDriverWait);
+        this.webDriverWait = webDriverWait;
         PageFactory.initElements(appiumDriver, this);
     }
 
@@ -19,7 +23,7 @@ public class GoogleHomePage extends CoreWebPage {
         driver.get(addressOfGooglePage); // openGoogle search page
 
         // Make sure that page has been loaded completely
-        wait.until(
+        webDriverWait.until(
                 wd -> ((JavascriptExecutor) wd)
                         .executeScript("return document.readyState").equals("complete")
         );

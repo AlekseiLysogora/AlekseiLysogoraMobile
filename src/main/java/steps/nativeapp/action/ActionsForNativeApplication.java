@@ -2,6 +2,7 @@ package steps.nativeapp.action;
 
 import io.appium.java_client.AppiumDriver;
 
+import org.openqa.selenium.support.ui.WebDriverWait;
 import pageobjects.nativeapp.NativeHomePage;
 import pageobjects.nativeapp.RegistrationPage;
 
@@ -10,9 +11,9 @@ public class ActionsForNativeApplication {
     private NativeHomePage nativeHomePage;
     private RegistrationPage registrationPage;
 
-    public ActionsForNativeApplication(AppiumDriver appiumDriver) {
-        nativeHomePage = new NativeHomePage(appiumDriver);
-        registrationPage = new RegistrationPage(appiumDriver);
+    public ActionsForNativeApplication(AppiumDriver appiumDriver, WebDriverWait webDriverWait) {
+        nativeHomePage = new NativeHomePage(appiumDriver, webDriverWait);
+        registrationPage = new RegistrationPage(appiumDriver, webDriverWait);
     }
 
     public void openHomePageAndClickRegistrationBtn() {
