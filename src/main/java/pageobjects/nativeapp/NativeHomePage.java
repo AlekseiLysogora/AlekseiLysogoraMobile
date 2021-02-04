@@ -30,8 +30,8 @@ public class NativeHomePage extends BaseNativePage {
         PageFactory.initElements(new AppiumFieldDecorator(appiumDriver), this);
     }
 
-    /**
-     * This method returns the login form of Home page
+    /*
+     * This method returns the login form of Home page.
      */
     public WebElement getLoginForm() {
         return waitUntilExpectedWebElementVisible(loginForm);
