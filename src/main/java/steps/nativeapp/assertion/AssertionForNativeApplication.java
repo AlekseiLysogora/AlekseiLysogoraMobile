@@ -3,6 +3,7 @@ package steps.nativeapp.assertion;
 import io.appium.java_client.AppiumDriver;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.asserts.SoftAssert;
 
@@ -11,6 +12,8 @@ import pageobjects.nativeapp.BudgetPage;
 import pageobjects.nativeapp.NativeHomePage;
 import pageobjects.nativeapp.RegistrationPage;
 import setup.SetupTest;
+
+import java.util.stream.Collectors;
 
 public class AssertionForNativeApplication extends SetupTest {
 
@@ -27,6 +30,11 @@ public class AssertionForNativeApplication extends SetupTest {
         nativeHomePage = new NativeHomePage(appiumDriver, webDriverWait);
         registrationPage = new RegistrationPage(appiumDriver, webDriverWait);
         budgetPage = new BudgetPage(appiumDriver, webDriverWait);
+    }
+
+    public void checkThatEmailAndPasswordFieldsNotEmpty() {
+        /*nativeHomePage.getEmailPasswordTxtFields()
+                .stream().collect(Collectors.toList());*/
     }
 
     public void checkThatHomePageWasOpened() {

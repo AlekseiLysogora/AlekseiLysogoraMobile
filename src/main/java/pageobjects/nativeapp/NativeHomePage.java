@@ -8,6 +8,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class NativeHomePage extends BaseNativePage {
 
     @AndroidFindBy(id = APP_PACKAGE_NAME + "login_form")
@@ -25,9 +28,18 @@ public class NativeHomePage extends BaseNativePage {
     @AndroidFindBy(id = APP_PACKAGE_NAME + "email_sign_in_button")
     WebElement signInBtn;
 
+    private List<String> text;
+
     public NativeHomePage(AppiumDriver appiumDriver, WebDriverWait webDriverWait) {
         super(appiumDriver, webDriverWait);
         PageFactory.initElements(new AppiumFieldDecorator(appiumDriver), this);
+    }
+
+    public List<String> getEmailPasswordTxtFields() {
+        text = new ArrayList<>();
+        text.add(inputLoginOrEmailTextField.getText());
+        text.add(passwordTextField.getText());
+        return text;
     }
 
     /*

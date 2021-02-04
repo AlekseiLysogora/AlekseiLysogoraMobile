@@ -35,6 +35,10 @@ public class AssertionForWebApplication extends SetupTest {
     }
 
     public void checkThatRelevantResultsNan() {
+
+        softAssert.assertTrue(resultSearchPage.getRelevantResults() != null,
+                "The list of results is equal null");
+
         if (resultSearchPage.getRelevantResults() != null) {
             System.out.println("\n>->-> The result isn't equal null <-<-<\n"
                     + "The assertion of web app passed successfully");
