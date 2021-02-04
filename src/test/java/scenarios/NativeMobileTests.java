@@ -17,12 +17,15 @@ public class NativeMobileTests extends InitializationTest {
 
         assertionStepNativeApp.checkThatHomePageWasOpened();
         stepNativeApp.openRegistrationPage();
+        assertionStepNativeApp.checkThatRegistrationPageWasOpened();
         stepNativeApp.fillEmailTextFieldByNewEmail(email);
         stepNativeApp.fillUsernameTextFieldByNewUsername(username);
         stepNativeApp.fillPasswordTextFieldByNewPassword(password);
         stepNativeApp.fillConfirmPasswordTextFieldByNewPassword(password);
         stepNativeApp.clickOnCheckBox(); //todo <<---??
         stepNativeApp.clickOnRegistrationButton();
+        // in the below line is checked the driver return to the Home page after registration new account
+        assertionStepNativeApp.checkThatHomePageWasOpened();
         stepNativeApp.fillEmailTextFieldByCreatedEmail(email);
         stepNativeApp.fillPasswordTextFieldByCreatedPassword(password);
         stepNativeApp.clickOnSignInButton();

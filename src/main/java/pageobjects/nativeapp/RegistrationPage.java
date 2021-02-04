@@ -9,6 +9,9 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class RegistrationPage extends BaseNativePage {
 
+    @AndroidFindBy(id = APP_PACKAGE_NAME + "email_registration_form")
+    WebElement emailRegistrationForm;
+
     @AndroidFindBy(id = APP_PACKAGE_NAME + "registration_email")
     WebElement emailTextField;
 
@@ -30,6 +33,10 @@ public class RegistrationPage extends BaseNativePage {
     public RegistrationPage(AppiumDriver appiumDriver, WebDriverWait webDriverWait) {
         super(appiumDriver, webDriverWait);
         PageFactory.initElements(new AppiumFieldDecorator(appiumDriver), this);
+    }
+
+    public WebElement getRegistrationForm() {
+        return waitUntilExpectedWebElementVisible(emailRegistrationForm);
     }
 
     public void setNewEmail(String newEmail) {

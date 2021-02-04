@@ -9,12 +9,14 @@ import org.testng.asserts.SoftAssert;
 import pageobjects.nativeapp.BudgetPage;
 
 import pageobjects.nativeapp.NativeHomePage;
+import pageobjects.nativeapp.RegistrationPage;
 import setup.SetupTest;
 
 public class AssertionForNativeApplication extends SetupTest {
 
     private WebDriver driver;
     private NativeHomePage nativeHomePage;
+    private RegistrationPage registrationPage;
     private BudgetPage budgetPage;
     private SoftAssert softAssert;
 
@@ -23,12 +25,18 @@ public class AssertionForNativeApplication extends SetupTest {
         driver = appiumDriver;
         this.softAssert = softAssert;
         nativeHomePage = new NativeHomePage(appiumDriver, webDriverWait);
+        registrationPage = new RegistrationPage(appiumDriver, webDriverWait);
         budgetPage = new BudgetPage(appiumDriver, webDriverWait);
     }
 
     public void checkThatHomePageWasOpened() {
         softAssert.assertTrue(nativeHomePage.getLoginForm().isDisplayed(),
                 "The login form on the Home page of Native application isn't exists");
+    }
+
+    public void checkThatRegistrationPageWasOpened() {
+        softAssert.assertTrue(registrationPage.getRegistrationForm().isDisplayed(),
+                "The registration form on the Home page of Native application isn't exists");
     }
 
     public void checkThatBudgetPageWasOpened(String expectedBudgetPage) {
