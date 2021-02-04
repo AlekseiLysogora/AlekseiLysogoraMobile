@@ -10,6 +10,9 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class NativeHomePage extends BaseNativePage {
 
+    @AndroidFindBy(id = APP_PACKAGE_NAME + "login_form")
+    WebElement loginForm;
+
     @AndroidFindBy(id = APP_PACKAGE_NAME + "register_button")
     WebElement registerNewAccountBtn;
 
@@ -25,6 +28,13 @@ public class NativeHomePage extends BaseNativePage {
     public NativeHomePage(AppiumDriver appiumDriver, WebDriverWait webDriverWait) {
         super(appiumDriver, webDriverWait);
         PageFactory.initElements(new AppiumFieldDecorator(appiumDriver), this);
+    }
+
+    /**
+     * This method returns the login form of Home page
+     */
+    public WebElement getLoginForm() {
+        return waitUntilExpectedWebElementVisible(loginForm);
     }
 
     public void openRegistrationPage() {

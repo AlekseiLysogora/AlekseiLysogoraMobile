@@ -16,7 +16,7 @@ public class ActionsForNativeApplication {
         registrationPage = new RegistrationPage(appiumDriver, webDriverWait);
     }
 
-    public void openHomePageAndClickRegistrationBtn() {
+    public void openRegistrationPage() {
         nativeHomePage.openRegistrationPage();
     }
 

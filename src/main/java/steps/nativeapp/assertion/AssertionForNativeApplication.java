@@ -8,11 +8,13 @@ import org.testng.asserts.SoftAssert;
 
 import pageobjects.nativeapp.BudgetPage;
 
+import pageobjects.nativeapp.NativeHomePage;
 import setup.SetupTest;
 
 public class AssertionForNativeApplication extends SetupTest {
 
     private WebDriver driver;
+    private NativeHomePage nativeHomePage;
     private BudgetPage budgetPage;
     private SoftAssert softAssert;
 
@@ -20,14 +22,17 @@ public class AssertionForNativeApplication extends SetupTest {
                                          WebDriverWait webDriverWait, SoftAssert softAssert) {
         driver = appiumDriver;
         this.softAssert = softAssert;
+        nativeHomePage = new NativeHomePage(appiumDriver, webDriverWait);
         budgetPage = new BudgetPage(appiumDriver, webDriverWait);
+    }
+
+    public void checkThatHomePageWasOpened() {
+        softAssert.assertTrue(nativeHomePage.getLoginForm().isDisplayed(),
+                "The login form on the Home page of Native application isn't exists");
     }
 
     public void checkThatBudgetPageWasOpened(String expectedBudgetPage) {
         String actual = budgetPage.getActivityTitle();
-
-        System.out.println("actual BudgetPageTitle >> " + actual);
-        System.out.println("expected BudgetPageTitle >> " + expectedBudgetPage);
 
         softAssert.assertTrue(actual.equals(expectedBudgetPage),
                 "The title of the Budget Page of the native "

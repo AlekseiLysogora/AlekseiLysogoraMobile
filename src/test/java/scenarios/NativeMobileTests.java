@@ -15,7 +15,8 @@ public class NativeMobileTests extends InitializationTest {
     public void registerNewAccount(String expectedBudgetPage, String email,
                                    String username, String password) {
 
-        stepNativeApp.openHomePageAndClickRegistrationBtn();
+        assertionStepNativeApp.checkThatHomePageWasOpened();
+        stepNativeApp.openRegistrationPage();
         stepNativeApp.fillEmailTextFieldByNewEmail(email);
         stepNativeApp.fillUsernameTextFieldByNewUsername(username);
         stepNativeApp.fillPasswordTextFieldByNewPassword(password);
