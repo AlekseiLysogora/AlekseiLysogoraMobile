@@ -1,9 +1,11 @@
 package steps.webapp.action;
 
 import io.appium.java_client.AppiumDriver;
+
 import org.openqa.selenium.support.ui.WebDriverWait;
-import pageobjects.webapp.GoogleHomePage;
-import pageobjects.webapp.GoogleResultSearchPage;
+
+import pageobjects.webapp.pages.GoogleHomePage;
+import pageobjects.webapp.pages.GoogleResultSearchPage;
 
 public class ActionsForWebApplication {
 

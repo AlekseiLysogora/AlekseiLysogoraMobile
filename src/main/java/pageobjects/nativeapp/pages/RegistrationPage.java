@@ -1,4 +1,4 @@
-package pageobjects.nativeapp;
+package pageobjects.nativeapp.pages;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.pagefactory.*;
@@ -7,7 +7,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class RegistrationPage extends BaseNativePage {
+import pageobjects.nativeapp.CoreNativePage;
+
+public class RegistrationPage extends CoreNativePage {
 
     @AndroidFindBy(id = APP_PACKAGE_NAME + "email_registration_form")
     WebElement emailRegistrationForm;

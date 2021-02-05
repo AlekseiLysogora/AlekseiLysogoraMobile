@@ -12,6 +12,7 @@ public class DataProviderForTests {
     private GetProperties getNativeAppProperty = new GetProperties(NATIVE_APP);
     private GetProperties getWebAppProperty = new GetProperties(WEB_APP);
 
+    //random integer needs to set unique email, username, and password values
     Random random = new Random();
     int randomInt = random.nextInt(10000) + 1;
 

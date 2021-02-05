@@ -1,15 +1,17 @@
-package pageobjects.webapp;
+package pageobjects.webapp.pages;
 
 import io.appium.java_client.AppiumDriver;
+
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.*;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import pageobjects.webapp.CoreWebPage;
 
 import java.util.List;
 
-public class GoogleResultSearchPage extends BaseWebPage {
+public class GoogleResultSearchPage extends CoreWebPage {
 
     @FindBy(xpath = ("//*[@id='rso']/div"))
     List<WebElement> resultSearchList;

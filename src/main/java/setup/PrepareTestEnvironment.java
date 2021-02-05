@@ -4,19 +4,17 @@ import java.io.File;
 import java.net.*;
 import java.util.concurrent.TimeUnit;
 
+import driver.IDriver;
 import io.appium.java_client.AppiumDriver;
 
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.*;
 
-import pageobjects.PageObject;
-
-public class SetupTest implements IDriver {
+public class PrepareTestEnvironment implements IDriver {
 
     private static AppiumDriver appiumDriver; // singleton
     protected WebDriverWait webDriverWait;
-    IPageObject pageObject;
 
     @Override
     public AppiumDriver getDriver() {
@@ -27,11 +25,10 @@ public class SetupTest implements IDriver {
     @BeforeSuite(alwaysRun = true)
     public void setUp(
             String platformName, String appType, String deviceName,
-            @Optional("") String browserName, @Optional("") String app) throws Exception {
+            @Optional("") String browserName, @Optional("") String app) {
 
         System.out.println("Before: app type - " + appType);
         setAppiumDriver(platformName, deviceName, browserName, app);
-        setPageObject(appType, appiumDriver);
     }
 
     @AfterSuite(alwaysRun = true)
@@ -63,10 +60,5 @@ public class SetupTest implements IDriver {
 
         // Timeouts tuning
         appiumDriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-
-    }
-
-    private void setPageObject(String appType, AppiumDriver appiumDriver) throws Exception {
-        pageObject = new PageObject(appType, appiumDriver);
     }
 }

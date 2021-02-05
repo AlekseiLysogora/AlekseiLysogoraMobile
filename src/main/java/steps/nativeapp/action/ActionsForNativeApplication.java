@@ -3,8 +3,8 @@ package steps.nativeapp.action;
 import io.appium.java_client.AppiumDriver;
 
 import org.openqa.selenium.support.ui.WebDriverWait;
-import pageobjects.nativeapp.NativeHomePage;
-import pageobjects.nativeapp.RegistrationPage;
+import pageobjects.nativeapp.pages.NativeHomePage;
+import pageobjects.nativeapp.pages.RegistrationPage;
 
 public class ActionsForNativeApplication {
 

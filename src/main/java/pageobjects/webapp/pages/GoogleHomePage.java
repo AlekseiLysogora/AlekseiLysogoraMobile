@@ -1,11 +1,14 @@
-package pageobjects.webapp;
+package pageobjects.webapp.pages;
 
 import io.appium.java_client.AppiumDriver;
+
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.*;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class GoogleHomePage extends BaseWebPage {
+import pageobjects.webapp.CoreWebPage;
+
+public class GoogleHomePage extends CoreWebPage {
 
     @FindBy(xpath = ("//input[@name='q']"))
     WebElement searchTextField;

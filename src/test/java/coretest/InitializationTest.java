@@ -6,14 +6,14 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.*;
 import org.testng.asserts.SoftAssert;
 
-import setup.SetupTest;
+import setup.PrepareTestEnvironment;
 
 import steps.nativeapp.action.ActionsForNativeApplication;
 import steps.nativeapp.assertion.AssertionForNativeApplication;
 import steps.webapp.action.ActionsForWebApplication;
 import steps.webapp.assertion.AssertionForWebApplication;
 
-public abstract class InitializationTest extends SetupTest {
+public abstract class InitializationTest extends PrepareTestEnvironment {
 
     protected AppiumDriver driver;
     protected SoftAssert softAssertion;

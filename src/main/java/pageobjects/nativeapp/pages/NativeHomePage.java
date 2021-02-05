@@ -1,17 +1,18 @@
-package pageobjects.nativeapp;
+package pageobjects.nativeapp.pages;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import io.appium.java_client.AppiumDriver;
-import io.appium.java_client.pagefactory.AndroidFindBy;
-import io.appium.java_client.pagefactory.AppiumFieldDecorator;
+import io.appium.java_client.pagefactory.*;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.util.ArrayList;
-import java.util.List;
+import pageobjects.nativeapp.CoreNativePage;
 
-public class NativeHomePage extends BaseNativePage {
+public class NativeHomePage extends CoreNativePage {
 
     @AndroidFindBy(id = APP_PACKAGE_NAME + "login_form")
     WebElement loginForm;
@@ -35,6 +36,7 @@ public class NativeHomePage extends BaseNativePage {
         PageFactory.initElements(new AppiumFieldDecorator(appiumDriver), this);
     }
 
+    //attempt to solve the additional task
     public List<String> getEmailPasswordTxtFields() {
         text = new ArrayList<>();
         text.add(inputLoginOrEmailTextField.getText());

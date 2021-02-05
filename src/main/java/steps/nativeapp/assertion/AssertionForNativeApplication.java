@@ -3,19 +3,16 @@ package steps.nativeapp.assertion;
 import io.appium.java_client.AppiumDriver;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.asserts.SoftAssert;
 
-import pageobjects.nativeapp.BudgetPage;
+import pageobjects.nativeapp.pages.BudgetPage;
 
-import pageobjects.nativeapp.NativeHomePage;
-import pageobjects.nativeapp.RegistrationPage;
-import setup.SetupTest;
+import pageobjects.nativeapp.pages.NativeHomePage;
+import pageobjects.nativeapp.pages.RegistrationPage;
+import setup.PrepareTestEnvironment;
 
-import java.util.stream.Collectors;
-
-public class AssertionForNativeApplication extends SetupTest {
+public class AssertionForNativeApplication extends PrepareTestEnvironment {
 
     private WebDriver driver;
     private NativeHomePage nativeHomePage;
@@ -32,6 +29,7 @@ public class AssertionForNativeApplication extends SetupTest {
         budgetPage = new BudgetPage(appiumDriver, webDriverWait);
     }
 
+    //attempt to solve the additional task
     public void checkThatEmailAndPasswordFieldsNotEmpty() {
         /*nativeHomePage.getEmailPasswordTxtFields()
                 .stream().collect(Collectors.toList());*/

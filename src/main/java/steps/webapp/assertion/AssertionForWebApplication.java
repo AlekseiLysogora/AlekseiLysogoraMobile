@@ -6,11 +6,11 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.asserts.SoftAssert;
 
-import pageobjects.webapp.GoogleResultSearchPage;
-import setup.SetupTest;
+import pageobjects.webapp.pages.GoogleResultSearchPage;
+import setup.PrepareTestEnvironment;
 
 
-public class AssertionForWebApplication extends SetupTest {
+public class AssertionForWebApplication extends PrepareTestEnvironment {
 
     private WebDriver driver;
     private SoftAssert softAssert;
