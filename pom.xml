@@ -21,7 +21,15 @@
         <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
         <maven-checkstyle-plugin.version>3.1.1</maven-checkstyle-plugin.version>
 
-        <ts.appium>http://localhost:4723/wd/hub</ts.appium>
+        <!--type of connection to appium server-->
+        <!--local-->
+    <!--<ts.appium>http://localhost:4723/wd/hub</ts.appium>-->
+
+        <!--remote-->
+        <token><!--set your token here-->
+
+        </token>
+        <ts.appium>https://EPM-TSTF:${token}@mobilecloud.epam.com/wd/hub</ts.appium>
     </properties>
 
     <dependencies>
@@ -121,6 +129,13 @@
             </activation>
             <properties>
                 <suite.file>${project.build.testOutputDirectory}/suites/webTNG.xml</suite.file>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>cloudWeb</id>
+            <properties>
+                <suite.file>${project.build.testOutputDirectory}/suites/cloudWebTNG.xml</suite.file>
             </properties>
         </profile>
     </profiles>
