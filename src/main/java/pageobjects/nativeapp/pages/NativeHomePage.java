@@ -19,7 +19,7 @@ public class NativeHomePage extends CoreNativePage {
     WebElement loginForm;
 
     @AndroidFindBy(id = APP_PACKAGE_NAME + "register_button")
-    //@iOSXCUITFindBy(xpath = "//XCUIElementTypeStaticText[@label='Sign In']")
+    @iOSXCUITFindBy(xpath = "//XCUIElementTypeStaticText[@label='Register new account']")
     WebElement registerNewAccountBtn;
 
     @AndroidFindBy(id = APP_PACKAGE_NAME + "login_email")
