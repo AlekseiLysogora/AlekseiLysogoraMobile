@@ -145,5 +145,12 @@
                 <suite.file>${project.build.testOutputDirectory}/suites/remote/Android/CloudAndroidWebTNG.xml</suite.file>
             </properties>
         </profile>
+
+        <profile>
+            <id>CloudiOSWeb</id>
+            <properties>
+                <suite.file>${project.build.testOutputDirectory}/suites/remote/Android/CloudiOSWeb.xml</suite.file>
+            </properties>
+        </profile>
     </profiles>
 </project>
