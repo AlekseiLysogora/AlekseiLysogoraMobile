@@ -118,7 +118,7 @@
                 <activeByDefault>false</activeByDefault>
             </activation>
             <properties>
-                <suite.file>${project.build.testOutputDirectory}/suites/nativeTNG.xml</suite.file>
+                <suite.file>${project.build.testOutputDirectory}/suites/local/nativeTNG.xml</suite.file>
             </properties>
         </profile>
 
@@ -128,14 +128,21 @@
                 <activeByDefault>true</activeByDefault>
             </activation>
             <properties>
-                <suite.file>${project.build.testOutputDirectory}/suites/webTNG.xml</suite.file>
+                <suite.file>${project.build.testOutputDirectory}/suites/local/webTNG.xml</suite.file>
             </properties>
         </profile>
 
         <profile>
-            <id>cloudWeb</id>
+            <id>CloudAndroidNative</id>
             <properties>
-                <suite.file>${project.build.testOutputDirectory}/suites/cloudWebTNG.xml</suite.file>
+                <suite.file>${project.build.testOutputDirectory}/suites/remote/Android/CloudAndroidNativeTNG.xml</suite.file>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>CloudAndroidWeb</id>
+            <properties>
+                <suite.file>${project.build.testOutputDirectory}/suites/remote/Android/CloudAndroidWebTNG.xml</suite.file>
             </properties>
         </profile>
     </profiles>

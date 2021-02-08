@@ -6,7 +6,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.*;
 import org.testng.asserts.SoftAssert;
 
-import setup.PrepareTestEnvironment;
+import setup.*;
 
 import steps.nativeapp.action.ActionsForNativeApplication;
 import steps.nativeapp.assertion.AssertionForNativeApplication;
