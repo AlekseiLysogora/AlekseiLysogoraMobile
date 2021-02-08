@@ -15,18 +15,23 @@ import pageobjects.nativeapp.CoreNativePage;
 public class NativeHomePage extends CoreNativePage {
 
     @AndroidFindBy(id = APP_PACKAGE_NAME + "login_form")
+    //@iOSXCUITFindBy(xpath = "//XCUIElementTypeStaticText[@label='Sign In']")
     WebElement loginForm;
 
     @AndroidFindBy(id = APP_PACKAGE_NAME + "register_button")
+    //@iOSXCUITFindBy(xpath = "//XCUIElementTypeStaticText[@label='Sign In']")
     WebElement registerNewAccountBtn;
 
     @AndroidFindBy(id = APP_PACKAGE_NAME + "login_email")
+    //@iOSXCUITFindBy(xpath = "//XCUIElementTypeStaticText[@label='Sign In']")
     WebElement inputLoginOrEmailTextField;
 
     @AndroidFindBy(id = APP_PACKAGE_NAME + "login_pwd")
+    //@iOSXCUITFindBy(xpath = "//XCUIElementTypeStaticText[@label='Sign In']")
     WebElement passwordTextField;
 
     @AndroidFindBy(id = APP_PACKAGE_NAME + "email_sign_in_button")
+    @iOSXCUITFindBy(xpath = "//XCUIElementTypeStaticText[@label='Sign In']")
     WebElement signInBtn;
 
     private List<String> text;

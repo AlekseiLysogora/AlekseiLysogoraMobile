@@ -21,14 +21,18 @@ public class PrepareTestEnvironment implements IDriver {
         return appiumDriver;
     }
 
-    @Parameters({"platformName","appType","deviceName","browserName","app"})
+    @Parameters({"platformName","appType","deviceName","browserName","app", "bundleId"})
     @BeforeSuite(alwaysRun = true)
     public void setUp(
-            String platformName, String appType, String deviceName,
-            @Optional("") String browserName, @Optional("") String app) {
+            String platformName,
+            String appType,
+            String deviceName,
+            @Optional("") String browserName,
+            @Optional("") String app,
+            @Optional("") String bundleId) {
 
         System.out.println("Before: app type - " + appType);
-        setAppiumDriver(platformName, deviceName, browserName, app);
+        setAppiumDriver(platformName, deviceName, browserName, app, bundleId);
     }
 
     @AfterSuite(alwaysRun = true)
@@ -38,7 +42,8 @@ public class PrepareTestEnvironment implements IDriver {
     }
 
     private void setAppiumDriver(
-            String platformName, String deviceName, String browserName, String app) {
+            String platformName, String deviceName,
+            String browserName, String app, String bundleId) {
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
         //mandatory Android capabilities
@@ -51,6 +56,9 @@ public class PrepareTestEnvironment implements IDriver {
 
         capabilities.setCapability("browserName", browserName);
         capabilities.setCapability("chromedriverDisableBuildCheck","true");
+
+        // Capabilities for test of iOS native app on EPAM Mobile Cloud
+        capabilities.setCapability("bundleId",bundleId);
 
         try {
             appiumDriver = new AppiumDriver(new URL(System.getProperty("ts.appium")), capabilities);
