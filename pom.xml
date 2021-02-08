@@ -149,7 +149,14 @@
         <profile>
             <id>CloudiOSWeb</id>
             <properties>
-                <suite.file>${project.build.testOutputDirectory}/suites/remote/Android/CloudiOSWeb.xml</suite.file>
+                <suite.file>${project.build.testOutputDirectory}/suites/remote/iOS/CloudiOSWebTNG.xml</suite.file>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>CloudiOSNative</id>
+            <properties>
+                <suite.file>${project.build.testOutputDirectory}/suites/remote/iOS/CloudiOSNativeTNG.xml</suite.file>
             </properties>
         </profile>
     </profiles>
