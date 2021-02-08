@@ -14,7 +14,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
-public class PrepareTestEnvRemote implements IDriver {
+public class PrepareTestEnvironmentRemote implements IDriver {
 
     private static AppiumDriver appiumDriver; // singleton
     protected WebDriverWait webDriverWait;
