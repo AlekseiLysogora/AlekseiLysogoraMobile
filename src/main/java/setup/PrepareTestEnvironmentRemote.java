@@ -62,6 +62,9 @@ public class PrepareTestEnvironmentRemote implements IDriver {
             capabilities.setCapability("app", (new File(app)).getAbsolutePath());
         }
 
+        capabilities.setCapability("browserName", browserName);
+        capabilities.setCapability("chromedriverDisableBuildCheck","true");
+
         // Capabilities for test of Android native app on EPAM Mobile Cloud
         capabilities.setCapability("appPackage", appPackage);
         capabilities.setCapability("appActivity",appActivity);
