@@ -42,5 +42,5 @@ Please, use the following commands to run tests at **the remote server**:
 - for the Android native application: ***mvn clean test -P CloudAndroidNative***
 
 - for the iOS web application: ***mvn clean test -P CloudiOSWeb***
-- for the iOS native application: ***CloudiOSNative***
+- for the iOS native application: ***mvn clean test -P CloudiOSNative***
 
