@@ -12,7 +12,7 @@ import pageobjects.nativeapp.CoreNativePage;
 public class BudgetPage extends CoreNativePage {
 
     @AndroidFindBy(xpath = "//*[contains(@text, 'BudgetActivity')]")
-    //@iOSXCUITFindBy(xpath = "//XCUIElementTypeStaticText[@label='Sign In']")
+    @iOSXCUITFindBy(xpath = "//XCUIElementTypeStaticText[@label='Budget']")
     WebElement budgetActivityTitle;
 
     public BudgetPage(AppiumDriver appiumDriver, WebDriverWait webDriverWait) {

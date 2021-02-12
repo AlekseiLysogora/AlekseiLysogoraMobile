@@ -15,7 +15,7 @@ import pageobjects.nativeapp.CoreNativePage;
 public class NativeHomePage extends CoreNativePage {
 
     @AndroidFindBy(id = APP_PACKAGE_NAME + "login_form")
-    //@iOSXCUITFindBy(xpath = "//XCUIElementTypeStaticText[@label='Sign In']")
+    @iOSXCUITFindBy(xpath = "//XCUIElementTypeNavigationBar[@name='Registration']")
     WebElement loginForm;
 
     @AndroidFindBy(id = APP_PACKAGE_NAME + "register_button")
@@ -23,11 +23,11 @@ public class NativeHomePage extends CoreNativePage {
     WebElement registerNewAccountBtn;
 
     @AndroidFindBy(id = APP_PACKAGE_NAME + "login_email")
-    //@iOSXCUITFindBy(xpath = "//XCUIElementTypeStaticText[@label='Sign In']")
+    @iOSXCUITFindBy(xpath = "//XCUIElementTypeTextField[@value='user@example.com']")
     WebElement inputLoginOrEmailTextField;
 
     @AndroidFindBy(id = APP_PACKAGE_NAME + "login_pwd")
-    //@iOSXCUITFindBy(xpath = "//XCUIElementTypeStaticText[@label='Sign In']")
+    @iOSXCUITFindBy(xpath = "//XCUIElementTypeSecureTextField[@value='Required']")
     WebElement passwordTextField;
 
     @AndroidFindBy(id = APP_PACKAGE_NAME + "email_sign_in_button")
@@ -53,7 +53,7 @@ public class NativeHomePage extends CoreNativePage {
      * This method returns the login form of Home page.
      */
     public WebElement getLoginForm() {
-        return waitUntilExpectedWebElementVisible(loginForm);
+        return waitUntilExpectedWebElementVisible(registerNewAccountBtn);
     }
 
     public void openRegistrationPage() {
