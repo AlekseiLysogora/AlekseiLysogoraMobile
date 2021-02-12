@@ -13,7 +13,7 @@ import steps.nativeapp.assertion.AssertionForNativeApplication;
 import steps.webapp.action.ActionsForWebApplication;
 import steps.webapp.assertion.AssertionForWebApplication;
 
-public abstract class InitializationTest extends PrepareTestEnvironmentRemote {
+public abstract class InitializationTest extends PrepareTestEnvironment {
 
     protected AppiumDriver driver;
     protected SoftAssert softAssertion;

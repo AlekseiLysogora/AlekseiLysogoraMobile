@@ -33,8 +33,7 @@ public class RegistrationPage extends CoreNativePage {
 
     @AndroidFindBy(xpath = CLICK_ON_CHECKBOX)
     @iOSXCUITFindBy(xpath = "//XCUIElementTypeStaticText[@label='I read agreaments "
-            + "and agree wit it']")
-    //XCUIElementTypeSwitch[@label='I read agreaments and agree wit it']
+                             + "and agree wit it']") //Java code conv. mvn plugin
     WebElement clickOnCheckBox;
 
     @AndroidFindBy(id = APP_PACKAGE_NAME + "register_new_account_button")
